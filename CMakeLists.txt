@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.2)
 
+if(NOT DEFINED ENV{TRAVIS_BUILD_NUMBER})
+    message(STATUS "TRAVIS_BUILD_NUMBER environment variable is not defined. Run 'export TRAVIS_BUILD_NUMBER=1'.")
+endif()
+
 project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
